@@ -26,8 +26,8 @@ public class JsObject {
      * 在js 中定义同名的函数即可- 让js 调用当前函数
      */
     @JavascriptInterface
-    public void showToast() {
-        ToastHelper.showShort("我是android代码，我被js 调用了.......");
+    public void showToast(String text) {
+        ToastHelper.showShort("我是android代码，我被js 调用了......." + text);
     }
 
     @JavascriptInterface

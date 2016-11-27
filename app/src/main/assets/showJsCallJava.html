@@ -7,14 +7,14 @@
 <body>
 
 <h4> 看看html 的样子</h4>
-<input type="button" value="弹一个android 吐司" onclick="showOneToast()"/> <br/> <br/>
+<input type="button" value="弹一个android 吐司" onclick="showOneToast('PPT')"/> <br/> <br/>
 <input type="button" value="打开摄像头" onclick="oc()"/> <br/> <br/>
 <input type="button" value="打开视频播放器" onclick="ov('http://vfx.mtime.cn/Video/2016/11/23/mp4/161123171217881971_480.mp4')"/> <br/>
 </body>
 <script language="JavaScript">
 
-    function showOneToast(){
-        javascript:js2android.showToast();
+    function showOneToast(txt){
+        javascript:js2android.showToast(txt);
     }
     function oc() {
         // alert("open camera。。。。。。。");
