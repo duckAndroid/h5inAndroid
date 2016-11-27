@@ -1,5 +1,6 @@
 package com.pythoncat.h5.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
@@ -36,8 +37,9 @@ public class MainActivity extends BaseActivity {
     @OnClick(R.id.btn_load_h5)
     public void loadH5(View v) {
         ToastHelper.showShort("load h5.....");
-        wv.loadUrl("file:///android_asset/showJsCallJava.html");
-        setContentView(wv);
+        Intent intent = new Intent(get(), WebActivity.class);
+        intent.putExtra("html", "file:///android_asset/showJsCallJava.html");
+        startActivity(intent);
     }
 
     @OnClick(R.id.btn_submit_info)
@@ -46,10 +48,6 @@ public class MainActivity extends BaseActivity {
         if (TextUtils.isEmpty(info)) {
             ToastHelper.showShort("没有填任何信息.,不能提交信息！");
         } else {
-//            wv.loadUrl("file:///android_asset/info_details.html"); // 换了一个html了。
-//            setContentView(wv);
-            //　todo --> 怎么把数据给js???
-
             String url = "javascript:setInfo(" + "'" + info + "'" + ")";
 //            javascript:setInfo('发达地区')
             LogUtils.e(url);
@@ -72,14 +70,5 @@ public class MainActivity extends BaseActivity {
         wv.addJavascriptInterface(new JsObject(), "js2android");
         wv.loadUrl("file:///android_asset/info_details.html"); // 换了一个html了。
         return wv;
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (wv.canGoBack()) {
-            wv.goBack();
-        } else {
-            super.onBackPressed();
-        }
     }
 }
