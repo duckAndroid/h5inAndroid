@@ -44,7 +44,7 @@ public class MainActivity extends BaseActivity {
         wv.setWebViewClient(new WebViewClient());
 //        javascript:js2android.openCamera();
         wv.addJavascriptInterface(new JsObject(), "js2android");
-        wv.loadUrl("file:///android_asset/h5.html");
+        wv.loadUrl("file:///android_asset/showJsCallJava.html");
         return wv;
     }
 
