@@ -32,9 +32,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#30ff"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:gravity="center_vertical"
             android:orientation="horizontal">
-
+            <!--android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        设置给 EditText 父控件，使自己默认不获取焦点-->
             <EditText
                 android:id="@+id/et_self_name"
                 android:layout_width="0dp"

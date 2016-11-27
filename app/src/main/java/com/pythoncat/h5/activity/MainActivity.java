@@ -1,10 +1,12 @@
 package com.pythoncat.h5.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -13,7 +15,6 @@ import android.widget.EditText;
 import com.apkfuns.logutils.LogUtils;
 import com.pythoncat.h5.R;
 import com.pythoncat.h5.base.BaseActivity;
-import com.pythoncat.h5.js.JsObject;
 import com.pythoncat.h5.utils.ToastHelper;
 
 import butterknife.BindView;
@@ -32,6 +33,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         bindBufferKnife2Self();
         wv = loadWebView();
+        etName.clearFocus();
     }
 
     @OnClick(R.id.btn_load_h5)
@@ -53,8 +55,14 @@ public class MainActivity extends BaseActivity {
             LogUtils.e(url);
             wv.loadUrl(url);
             setContentView(wv);
+            closeKeyBoard(etName);
         }
 
+    }
+
+    private void closeKeyBoard(EditText etName) {
+        InputMethodManager inputmanger = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputmanger.hideSoftInputFromWindow(etName.getWindowToken(), 0);
     }
 
     @NonNull
@@ -67,7 +75,7 @@ public class MainActivity extends BaseActivity {
         wv.setNetworkAvailable(true);
         wv.setWebViewClient(new WebViewClient());
 //        javascript:js2android.openCamera();
-        wv.addJavascriptInterface(new JsObject(), "js2android");
+//        wv.addJavascriptInterface(new JsObject(), "js2android");
         wv.loadUrl("file:///android_asset/info_details.html"); // 换了一个html了。
         return wv;
     }
