@@ -22,6 +22,9 @@ public class JsObject {
         App.get().startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
     }
 
+    /**
+     * 在js 中定义同名的函数即可- 让js 调用当前函数
+     */
     @JavascriptInterface
     public void showToast() {
         ToastHelper.showShort("我是android代码，我被js 调用了.......");

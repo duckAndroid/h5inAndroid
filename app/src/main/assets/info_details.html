@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOBO</title>
+</head>
+<body >
+
+<h4> android 输入框传来了什么信息？</h4>
+<b> android 传过来的参数：</b>
+<span id="id_data_from_android">到底是什么东西？？？？？？</span> <br/>
+
+<input hidden type="button" value="testFunction" onclick="setInfo('abcds')">
+</body>
+<script language="JavaScript">
+
+    function setInfo(info) {
+        document.getElementById('id_data_from_android').innerHTML = "^^^"+info;
+//        alert(info);
+    }
+
+</script>
+</html>

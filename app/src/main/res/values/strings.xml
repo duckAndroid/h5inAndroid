@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">h5</string>
+    <string name="upload_info">上传</string>
+    <string name="android_js_html_js">02. java 调用js 代码。这个上传，就是将android中的数据传递给js,并且在html中调用js方法，将获取的数据显示到网页上面</string>
 </resources>
